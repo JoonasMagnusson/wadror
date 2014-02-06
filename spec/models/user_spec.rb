@@ -71,6 +71,42 @@ describe User do
     end
   end
 
+  describe "favorite style" do
+  	let(:user){FactoryGirl.create(:user) }
+
+  	it "has method for determining one" do
+  		user.should respond_to :favorite_style
+  	end
+
+  	it "is the only rated if only one rating" do
+      beer = FactoryGirl.create(:beer)
+      style = beer.style
+      rating = FactoryGirl.create(:rating, beer:beer, user:user)
+
+      expect(user.favorite_style).to eq(style)
+    end
+
+    #TODO test for multiple ratings
+  end
+
+  describe "favorite brewery" do
+  	let(:user){FactoryGirl.create(:user) }
+
+  	it "has method for determining one" do
+  		user.should respond_to :favorite_brewery
+  	end
+
+  	it "is the only rated if only one rating" do
+      beer = FactoryGirl.create(:beer)
+      brewery = beer.brewery
+      rating = FactoryGirl.create(:rating, beer:beer, user:user)
+
+      expect(user.favorite_brewery).to eq(brewery)
+    end
+
+    #TODO test for multiple ratings
+  end
+
 end
 
 def create_beer_with_rating(score, user)
@@ -84,4 +120,3 @@ def create_beers_with_ratings(*scores, user)
   	create_beer_with_rating(score, user)
 	 end
 end
-

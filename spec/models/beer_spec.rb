@@ -19,10 +19,4 @@ describe Beer do
     expect(Beer.count).to eq(0)
   end
 
-  def create_beer_with_rating(score, user)
-      beer = FactoryGirl.create(:beer)
-      FactoryGirl.create(:rating, score:score, beer:beer, user:user)
-      beer
-    end
-
 end
