@@ -52,3 +52,7 @@ gem 'debugger', group: [:development, :test]
 gem 'byebug', group: [:development, :test]
 
 gem 'therubyracer', platforms: :ruby
+
+group :test do
+  gem 'rspec-rails', '~> 2.14.1'
+end
